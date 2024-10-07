@@ -1,9 +1,18 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from database import init_db  # Adicione a função de inicialização do banco de dados
 
 
+<<<<<<< HEAD
 # from  controller import commentController, scheduleController
 from controller import  scheduleController
+=======
+
+
+from controller import commentController, scheduleController, savedVideosController, recordController, recommendationController
+from controller.savedVideosController import WatchLater
+
+>>>>>>> b2c59bfc092de4806fa81e16f7fc96648cbe2a44
 
 # Desativado os os comentarios nos videos
 # from database import SessionLocal, engine
@@ -23,8 +32,16 @@ app.add_middleware(
     allow_headers=["*"],
 ) 
 
-# app.include_router(prefix="/api", router=commentController.comment)
+# Inicializar o banco de dados
+init_db()
+
+
+app.include_router(WatchLater, prefix="/api")
+#app.include_router(prefix="/api", router=commentController.comment)
 app.include_router(prefix="/api", router=scheduleController.schedule)
+app.include_router(prefix="/api", router=savedVideosController.favorite)
+app.include_router(prefix="/api", router=recordController.Record)
+app.include_router(prefix="/api", router=recommendationController.Recommendation)
 
 @app.get("/")
 async def root():
