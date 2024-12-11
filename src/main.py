@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from database import init_db  # Adicione a função de inicialização do banco de dados
+from controller import commentController, scheduleController, savedVideosController, recordController, recommendationController
+from controller.savedVideosController import WatchLater
 
 
+<<<<<<< HEAD
 # from src.controller import commentController, scheduleController
 from controller import  scheduleController
 
