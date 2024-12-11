@@ -1,10 +1,10 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from src.main import app
-from src.model import commentModel
-from src.database import engine
-from src.constants import errorMessages
+from  main import app
+from  model import commentModel
+from  database import engine
+from  constants import errorMessages
 
 client = TestClient(app)
 
