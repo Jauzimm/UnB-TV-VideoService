@@ -9,6 +9,7 @@ services:
             - ./.env
         environment:
             - POSTGRES_HOST=${POSTGRES_HOST}
+        depends_on: []
         restart: always
         networks:
             - backend_videos
