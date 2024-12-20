@@ -3,7 +3,10 @@ services:
     name: UnBTV-VideoService
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: PYTHONPATH=src uvicorn src.main:app --host 0.0.0.0 --port $PORT
+    startCommand: PYTHONPATH=/opt/render/project/src uvicorn src.main:app --host 0.0.0.0 --port $PORT
     rootDirectory: src
     instanceType: free
     healthCheckPath: /
+    envVars:
+      - key: PYTHONPATH
+        value: "/opt/render/project/src"
