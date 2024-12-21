@@ -20,15 +20,18 @@ from controller.savedVideosController import WatchLater
 
 app = FastAPI()
 
-origins = ["*"]
+origins = [
+    "https://unbtv.netlify.app",
+    "http://localhost:4200",
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["*"], 
     allow_headers=["*"],
-) 
+)
 
 # Inicializar o banco de dados
 init_db()
