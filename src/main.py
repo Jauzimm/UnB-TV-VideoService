@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 # Adiciona o diretório `src` ao Python Path dinamicamente
 current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(current_dir)
 sys.path.append(os.path.join(current_dir, ".."))
 
 from database import init_db  # Adicione a função de inicialização do banco de dados
