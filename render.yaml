@@ -4,6 +4,5 @@ services:
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn src.main:app --host 0.0.0.0 --port $PORT
-    rootDirectory: src 
     instanceType: free
     healthCheckPath: /health
