@@ -1,7 +1,14 @@
+import sys
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from src.database import init_db  # Adicione a função de inicialização do banco de dados
-from src.controller import commentController, scheduleController, savedVideosController, recordController, recommendationController
+
+# Adiciona o diretório `src` ao Python Path dinamicamente
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(current_dir, ".."))
+
+from database import init_db  # Adicione a função de inicialização do banco de dados
+from controller import commentController, scheduleController, savedVideosController, recordController, recommendationController
 from controller.savedVideosController import WatchLater
 
 # Desativado os os comentarios nos videos
