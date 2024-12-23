@@ -3,8 +3,9 @@ import pickle
 
 # Obtém uma lista de vídeos recomendados a partir de um ID
 def get_recommendations(id):
-    with open('./recommendation_model/cosine_similarity.pkl', 'rb') as f:
+    with open('/app/src/recommendation_model/cosine_similarity.pkl', 'rb') as f:
         cosine_sim = pickle.load(f)
+
     df = pd.read_csv('/app/src/recommendation_model/df_videos.csv')
 
     indices = pd.Series(df.index, index=df['ID']).drop_duplicates()
