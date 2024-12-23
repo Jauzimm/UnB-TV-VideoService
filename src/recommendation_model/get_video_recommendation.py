@@ -1,8 +1,17 @@
 import pandas as pd
 import pickle
+import os
 
 # Obtém uma lista de vídeos recomendados a partir de um ID
 def get_recommendations(id):
+
+    cosine_path = '/app/src/recommendation_model/cosine_similarity.pkl'
+    # Teste para garantir que o arquivo está acessível
+    if not os.path.exists(cosine_path):
+        raise FileNotFoundError(f"Arquivo não encontrado: {cosine_path}")
+    
+    print("Conteúdo do diretório recommendation_model:", os.listdir('/app/src/recommendation_model'))
+
     with open('/app/src/recommendation_model/cosine_similarity.pkl', 'rb') as f:
         cosine_sim = pickle.load(f)
 
