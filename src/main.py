@@ -21,7 +21,7 @@ from controller.savedVideosController import WatchLater
 app = FastAPI()
 
 origins = [
-    "https://unbtv.netlify.app",
+    "https://unbtv.com.br",
     "http://localhost:4200",
 ]
 
