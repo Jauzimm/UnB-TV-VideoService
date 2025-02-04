@@ -1,10 +1,19 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 # Constantes
 EDUPLAY_API_URL = 'https://eduplay.rnp.br/services/'  # URL base
 UNB_ID = 216
 VIDEOS_LIMIT = 1000
 VIDEOS_ORDER = 3
 UNB_TV_CHANNEL_ID = 190265
-EDUPLAY_CLIENT_KEY = 'a1cdba06226408fcda63b49c50223c68d56005d234cc98bcdc1ae787d2b4de1d'
+
+EDUPLAY_CLIENT_KEY = os.getenv('EDUPLAY_CLIENT_KEY')
+
+if not EDUPLAY_CLIENT_KEY:
+    raise ValueError("A variável EDUPLAY_CLIENT_KEY não está definida no .env")
 
 PORTUGUESE_STOP_WORDS = [
     'de', 'a', 'o', 'que', 'e', 'do', 'da', 'em', 'um', 'para', 'é', 'com', 'não', 
